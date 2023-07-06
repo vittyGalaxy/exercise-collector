@@ -44,6 +44,8 @@ void if3();
 
 void if4();
 
+void if5();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -61,7 +63,8 @@ int main() {
     //if1();
     //if2();
     //if3();
-    if4();
+    //if4();
+    if5();
     return 0;
 }
 
@@ -443,6 +446,32 @@ void if4() {
         cout << " I tre numeri sono in ordine crescente" << endl;
     }else{
         cout << "I tre numeri non sono in ordine crescente" << endl;
+    }
+}
+
+void if5(){
+    /*Date le coordinate di un punto su un piano cartesiano, verificare se il punto appartiene ad uno degli assi.*/
+
+    int x;
+    int y;
+
+    cout << "Inserisci x" << endl;
+    cin >> x;
+    cout << "Inserisci y" << endl;
+    cin >> y;
+
+    if (x == 0 && y == 0){
+        cout << "Il punto e' l'origine, cioe' tocca tutte e due le assi, asse x e asse y" << endl;
+    }else{
+        if (x == 0){
+            cout << "La x tocca l'asse delle y" << endl;
+        }else{
+            if(y == 0){
+                cout << "La y tocca l'asse delle x" << endl;
+            }else{
+                cout << "Nessuno dei punti appartengono agl'assi" << endl;
+            }
+        }
     }
 }
 
