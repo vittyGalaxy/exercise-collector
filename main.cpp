@@ -1,5 +1,6 @@
 #include <iostream>
 #include "functions.cpp"
+#include "cmath"
 
 using namespace std;
 
@@ -46,6 +47,10 @@ void if4();
 
 void if5();
 
+void if6();
+
+void if7();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -64,7 +69,9 @@ int main() {
     //if2();
     //if3();
     //if4();
-    if5();
+    //if5();
+    if6();
+    //if7();
     return 0;
 }
 
@@ -444,12 +451,12 @@ void if4() {
 
     if (n1 < n2 && n2 < n3) {
         cout << " I tre numeri sono in ordine crescente" << endl;
-    }else{
+    } else {
         cout << "I tre numeri non sono in ordine crescente" << endl;
     }
 }
 
-void if5(){
+void if5() {
     /*Date le coordinate di un punto su un piano cartesiano, verificare se il punto appartiene ad uno degli assi.*/
 
     int x;
@@ -460,18 +467,101 @@ void if5(){
     cout << "Inserisci y" << endl;
     cin >> y;
 
-    if (x == 0 && y == 0){
+    if (x == 0 && y == 0) {
         cout << "Il punto e' l'origine, cioe' tocca tutte e due le assi, asse x e asse y" << endl;
-    }else{
-        if (x == 0){
+    } else {
+        if (x == 0) {
             cout << "La x tocca l'asse delle y" << endl;
-        }else{
-            if(y == 0){
+        } else {
+            if (y == 0) {
                 cout << "La y tocca l'asse delle x" << endl;
-            }else{
+            } else {
                 cout << "Nessuno dei punti appartengono agl'assi" << endl;
             }
         }
     }
 }
 
+void if6() {
+    /*Dati tre punti del piano cartesiano A(xa,ya), B(xb,yb) e C(xc,yc)
+     * calcolare e visualizzare il perimetro del triangolo da essi formato;
+     * se il triangolo è degenere , cioè se due o più vertici coincidono,
+     * visualizzare un opportuno messaggio.*/
+
+    float xa;
+    float ya;
+    float xb;
+    float yb;
+    float xc;
+    float yc;
+    float perimetro1;
+    float perimetro2;
+    float perimetro3;
+    float sum;
+    float l2;
+    float perimetroTotale;
+    cout << "Inserisci xa" << endl;
+    cin >> xa;
+    cout << "Inserisci ya" << endl;
+    cin >> ya;
+    cout << "Inserisci xb" << endl;
+    cin >> xb;
+    cout << "Inserisci yb" << endl;
+    cin >> yb;
+    cout << "Inserisci xc" << endl;
+    cin >> xc;
+    cout << "Inserisci yc" << endl;
+    cin >> yc;
+    perimetro1 = sqrt((xb - xa) * (xb - xa) + (yb - ya) * (yb - ya));
+    perimetro2 = sqrt((xc - xa) * (xc - xa) + (yc - ya) * (yc - ya));
+    perimetro3 = sqrt((xb - xc) * (xb - xc) + (yb - yc) * (yb - yc));
+    if (perimetro1 > perimetro2 && perimetro1 > perimetro3) {
+        l2 = perimetro2 + perimetro3;
+        perimetroTotale = perimetro1;
+    }
+    if (perimetro2 > perimetro1 && perimetro2 > perimetro3) {
+        l2 = (float) perimetro1 + (float) perimetro3;
+        perimetroTotale = perimetro2;
+    }
+    if (perimetro3 > perimetro1 && perimetro3 > perimetro2) {
+        l2 = perimetro1 + perimetro2;
+        perimetroTotale = perimetro3;
+    }
+    cout << l2 << endl;
+    cout << perimetroTotale << endl;
+    cout <<" Perimetro3 =" << perimetro3 << endl;
+    cout << "perimetro2 =" << perimetro2 << endl;
+    cout << "perimetro1 =" << perimetro1 << endl;
+
+
+    if (l2 > perimetroTotale){
+        sum = perimetro1 + perimetro2 + perimetro3;
+        cout << "il risultato del perimetro e'" << sum << endl;
+    }else{
+        cout << "Il triangolo e' degenere" << endl;
+    }
+}
+
+void if7() {
+    /*Date in ingresso le lunghezze di tre lati,
+     * verificare se possono essere i lati di un triangolo.
+     * Tre lati costituiscono un triangolo se la somma delle lunghezze di due lati è maggiore della lunghezza del terzo lato.*/
+    int a;
+    int b;
+    int c;
+    int sum;
+    cout << "Inserisci a" << endl;
+    cin >> a;
+    cout << "Inserisci b" << endl;
+    cin >> b;
+    cout << "Inserisci c" << endl;
+    cin >> c;
+
+    sum = a + b;
+
+    if (sum > c) {
+        cout << "e' un triangolo" << endl;
+    } else {
+        cout << "Il terzo lato e piu' grande, non e' possibile fare un triangolo" << endl;
+    }
+}
