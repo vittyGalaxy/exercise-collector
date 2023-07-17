@@ -61,6 +61,8 @@ void if14();
 
 void if15();
 
+void function1();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -86,7 +88,8 @@ int main() {
     //if9();
     //if11();
     //if14();
-    if15();
+    //if15();
+    function1();
     return 0;
 }
 
@@ -738,4 +741,14 @@ void if15() {
     }else{
         cout << "velocita' regolare" << endl;
     }
+}
+
+void function1() {
+    /*Scrivere un programma che dato in input il raggio di un cerchio ne stampi l'area utilizzando
+     *una funzione che riceve il raggio dal programma principale attraverso un passaggio per valore.*/
+
+    float r;
+    cout << "Inserisci il raggio" << r << endl;
+    cin >> r;
+    cout << "L'area e': " << circle_area(r) << endl;
 }
