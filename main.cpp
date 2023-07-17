@@ -63,6 +63,8 @@ void if15();
 
 void function1();
 
+void function3();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -89,7 +91,8 @@ int main() {
     //if11();
     //if14();
     //if15();
-    function1();
+    //function1();
+    function3();
     return 0;
 }
 
@@ -692,11 +695,11 @@ void if14() {
      * Possiamo farlo in bicicletta se la temperatura media delle quattro località è superiore ai 5°C altrimenti usiamo la macchina.
      * Scrivi un algoritmo che calcolata la temperatura media delle quattro località stabilisca quale mezzo dobbiamo usare.*/
 
-    float legnano;
-    float rho;
-    float parabiago;
-    float nerviano;
-    float temperatura_media;
+    double legnano;
+    double rho;
+    double parabiago;
+    double nerviano;
+    double temperatura_media;
 
     cout << "Inserisci la temperatura di legnano" << endl;
     cin >> legnano;
@@ -748,7 +751,20 @@ void function1() {
      *una funzione che riceve il raggio dal programma principale attraverso un passaggio per valore.*/
 
     float r;
-    cout << "Inserisci il raggio" << r << endl;
+    cout << "Inserisci il raggio" << endl;
     cin >> r;
     cout << "L'area e': " << circle_area(r) << endl;
+}
+
+void function3(){
+    /*Scrivere un programma che dato in input base altezza di un triangolo rettangolo passi tali valori
+     *ad una funzione attraverso la quale si possano stabilire ipotenusa, area e perimetro del triangolo.*/
+
+    float h;
+    float b;
+    cout << "Inserisci la base" << endl;
+    cin >> b;
+    cout << "Inserisci l'altezza" << endl;
+    cin >> h;
+    calcolator_triangle(h, b);
 }
