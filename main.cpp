@@ -51,6 +51,16 @@ void if6();
 
 void if7();
 
+void if8();
+
+void if9();
+
+void if11();
+
+void if14();
+
+void if15();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -70,8 +80,13 @@ int main() {
     //if3();
     //if4();
     //if5();
-    if6();
+    //if6();
     //if7();
+    //if8();
+    //if9();
+    //if11();
+    //if14();
+    if15();
     return 0;
 }
 
@@ -529,15 +544,15 @@ void if6() {
     }
     cout << l2 << endl;
     cout << perimetroTotale << endl;
-    cout <<" Perimetro3 =" << perimetro3 << endl;
+    cout << " Perimetro3 =" << perimetro3 << endl;
     cout << "perimetro2 =" << perimetro2 << endl;
     cout << "perimetro1 =" << perimetro1 << endl;
 
 
-    if (l2 > perimetroTotale){
+    if (l2 > perimetroTotale) {
         sum = perimetro1 + perimetro2 + perimetro3;
         cout << "il risultato del perimetro e'" << sum << endl;
-    }else{
+    } else {
         cout << "Il triangolo e' degenere" << endl;
     }
 }
@@ -563,5 +578,164 @@ void if7() {
         cout << "e' un triangolo" << endl;
     } else {
         cout << "Il terzo lato e piu' grande, non e' possibile fare un triangolo" << endl;
+    }
+}
+
+void if8() {
+    /*Una imposta viene calcolata applicando una aliquota del del 9% sulla parte imponibile fino a 17mila €
+     * e l'aliquota del 15% sulla eventuale parte eccedente.
+     * Dato l'imponibile calcolare e visualizzare l'eventuale imposta corrispondente.*/
+
+    float imponibile;
+    float iva15 = 15;
+    float iva9 = 9;
+    float eccedente;
+    float risultato;
+    float sum;
+    float VariazioneIva = 17000;
+    float nSum;
+    cout << "Inserisci l'imponibile" << endl;
+    cin >> imponibile;
+
+    if (imponibile > VariazioneIva) {
+        eccedente = imponibile - VariazioneIva;
+        risultato = (eccedente * iva15) / 100;
+        nSum = (VariazioneIva * iva9) / 100;
+        sum = nSum + risultato;
+        cout << "e' piu' ricco di 17000 euro" << endl;
+        cout << "Il risultato e': " << sum << endl;
+    } else {
+        risultato = (imponibile * iva9) / 100;
+        cout << "e' meno ricco di 17000 euro" << endl;
+        cout << "Il risultato e': " << risultato << endl;
+    }
+}
+
+void if9() {
+    /*Una ditta pratica ai propri clienti sconti diversi a seconda della quantità di merce acquistata:
+     * sui primi 10 pezzi pratica il 5% di sconto, e sui rimanenti (se ce ne sono) pratica il 10% di sconto.
+     * Dati il prezzo unitario della merce e la quantità acquistata, calcolare e visualizzare la spesa del cliente.*/
+    double pezzi;
+    double prezzo;
+    double prezzi_rimanenti;
+    double totale_senza_sconto;
+    double prezzi_mancanti;
+    double risultato_prezzo1;
+    double risultato_prezzo2;
+    double ps5 = 5.0;
+    double ps10 = 10.0;
+    double sconto1;
+    double sconto2;
+    double sconto_totale;
+    double SpesaCliente;
+    cout << "Inserisci i pezzi" << endl;
+    cin >> pezzi;
+    cout << "Inserisci il prezzo" << endl;
+    cin >> prezzo;
+    prezzi_rimanenti = pezzi - 10.0;
+    prezzi_mancanti = pezzi - prezzi_rimanenti;
+
+    if (pezzi > 10.0) {
+        risultato_prezzo1 = prezzi_mancanti * prezzo;
+        cout << "ris pr1: " << risultato_prezzo1 << endl;
+        risultato_prezzo2 = prezzi_rimanenti * prezzo;
+        cout << "ris pr2: " << risultato_prezzo2 << endl;
+        totale_senza_sconto = risultato_prezzo1 + risultato_prezzo2;
+        cout << "totale senza sconta: " << totale_senza_sconto << endl;
+        sconto1 = (risultato_prezzo1 * ps5) / 100.0;
+        cout << "sconto1: " << sconto1 << endl;
+        sconto2 = (risultato_prezzo2 * ps10) / 100.0;
+        cout << "sconto2: " << sconto2 << endl;
+        sconto_totale = sconto1 + sconto2;
+        cout << "sconto totale" << sconto_totale << endl;
+        SpesaCliente = totale_senza_sconto - sconto_totale;
+        cout << "I pezzi sono maggiore di 10, la spesa cliente e': " << SpesaCliente << endl;
+    } else {
+        risultato_prezzo1 = pezzi * prezzo;
+        sconto1 = (risultato_prezzo1 * ps5) / 100.0;
+        SpesaCliente = risultato_prezzo1 - sconto1;
+        cout << "I pezzi sono minore di 10, la spesa cliente e': " << SpesaCliente << endl;
+    }
+}
+
+void if11() {
+    /*Realizzare un algoritmo per risolvere l'equazione ax=b.
+     * Si deve comunicare in output se è un'equazione determinata, impossibile o indeterminata.
+     * Se è determinata si deve anche visualizzare il risultato.*/
+
+    float a;
+    float x;
+    float b;
+    cout << "Inserisci a" << endl;
+    cin >> a;
+    cout << "Inserisci b" << endl;
+    cin >> b;
+
+    if (a == 0 && b == 0) {
+        cout << "E' indeterminata" << endl;
+    }
+    if (a == 0 && b != 0) {
+        cout << "E' impossibilie" << endl;
+    }
+    if (a != 0) {
+        x = b / a;
+        cout << "E' determinata" << endl;
+        cout << "Il risultato e': " << x << endl;
+    }
+}
+
+void if14() {
+    /*Dobbiamo trasferirci da Legnano a Rho passando per Parabiago e Nerviano.
+     * Possiamo farlo in bicicletta se la temperatura media delle quattro località è superiore ai 5°C altrimenti usiamo la macchina.
+     * Scrivi un algoritmo che calcolata la temperatura media delle quattro località stabilisca quale mezzo dobbiamo usare.*/
+
+    float legnano;
+    float rho;
+    float parabiago;
+    float nerviano;
+    float temperatura_media;
+
+    cout << "Inserisci la temperatura di legnano" << endl;
+    cin >> legnano;
+    cout << "Inserisci la temperatura di rho" << endl;
+    cin >> rho;
+    cout << "Inserisci la temperatura di parabiago" << endl;
+    cin >> parabiago;
+    cout << "Inserisci la temperatura di nerviano" << endl;
+    cin >> nerviano;
+    temperatura_media = (legnano + rho + parabiago + nerviano) / 4.0;
+    cout << "La temperatura media e': " << temperatura_media << endl;
+
+    if (temperatura_media > 5) {
+        cout << "Possono usare la bicicletta" << endl;
+    } else {
+        cout << "Devono usare la macchina" << endl;
+    }
+}
+
+void if15() {
+    /*Un segnalatore di velocità è programmato per indicare l'ammontare di una multa di 60€ secondo la seguente procedura :
+     *se la velocità del veicolo supera i 50km/h viene registrata la contravvenzione, l'ammontare è di 1,5€ per ogni km/h eccedente i 50km/h.
+     *Data la velocità rilevata, visualizzare l'ammontare della multa oppure il messaggio "velocità regolare".*/
+
+    float velocita;
+    float multa;
+    float aggiunta = 1.5;
+    float max_Kh = 50.0;
+    float Kh_superati;
+    float aggiunta_multa;
+    float multa_pagare;
+    float multa_min = 60.0;
+
+    cout << "Aggiungi la velocita'" << endl;
+    cin >> velocita;
+
+    if(velocita > max_Kh){
+        Kh_superati = velocita - max_Kh;
+        aggiunta_multa = Kh_superati * aggiunta;
+        multa_pagare = multa_min + aggiunta_multa;
+        cout << "La sua multa e' di: " << multa_pagare << " euro" << endl;
+    }else{
+        cout << "velocita' regolare" << endl;
     }
 }
