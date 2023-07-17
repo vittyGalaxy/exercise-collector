@@ -1,4 +1,5 @@
 /* Definizione delle funzioni utilizzate */
+#include "cmath"
 #include <iostream>
 #include "functions.h"
 using namespace std;
@@ -66,4 +67,9 @@ void identifier(int a , int b){
             cout << "Dispari" << endl;
         }
     }
+}
+
+float circle_area(float a){
+    float b = a * a * M_PI;
+    return b;
 }

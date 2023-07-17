@@ -9,3 +9,4 @@ float compute_ohm_law(float R, float i);
 float compute_dynamic_law(float m, float a);
 bool comparison(int value, int reference);
 void identifier(int a, int b);
+float circle_area(float a);
