@@ -65,6 +65,20 @@ void function1();
 
 void function3();
 
+void array1();
+
+void array2();
+
+void array3();
+
+void array_prova();
+
+void array_esercizio();
+
+void array_esercizio2();
+
+void array_esercizio3();
+
 int main() {
     //esercizio1();
     //esercizioNuovo();
@@ -92,7 +106,14 @@ int main() {
     //if14();
     //if15();
     //function1();
-    function3();
+    //function3();
+    //array_prova();
+    //array1();
+    //array2();
+    //array3();
+    //array_esercizio();
+    //array_esercizio2();
+    array_esercizio3();
     return 0;
 }
 
@@ -736,12 +757,12 @@ void if15() {
     cout << "Aggiungi la velocita'" << endl;
     cin >> velocita;
 
-    if(velocita > max_Kh){
+    if (velocita > max_Kh) {
         Kh_superati = velocita - max_Kh;
         aggiunta_multa = Kh_superati * aggiunta;
         multa_pagare = multa_min + aggiunta_multa;
         cout << "La sua multa e' di: " << multa_pagare << " euro" << endl;
-    }else{
+    } else {
         cout << "velocita' regolare" << endl;
     }
 }
@@ -756,7 +777,7 @@ void function1() {
     cout << "L'area e': " << circle_area(r) << endl;
 }
 
-void function3(){
+void function3() {
     /*Scrivere un programma che dato in input base altezza di un triangolo rettangolo passi tali valori
      *ad una funzione attraverso la quale si possano stabilire ipotenusa, area e perimetro del triangolo.*/
 
@@ -767,4 +788,125 @@ void function3(){
     cout << "Inserisci l'altezza" << endl;
     cin >> h;
     calcolator_triangle(h, b);
+}
+
+void array1() {
+    /*Dato un vettore di 8 numeri interi caricato da programma stampare in uscita la somma e la media dei valori in esso contenuti.*/
+    double somma;
+    const int N = 8;
+    double media;
+    double numeri[N] = {5.0, 8.0, 9.0, 4.0, 3.0, 6.0, 1.0, 7.0,};
+    for (int i = 0; i < N; i++) {
+        somma = somma + numeri[i];
+    }
+    cout << "La somma di tutto e': " << somma << endl;
+    media = somma / (double) N;
+    cout << "La media e': " << media << endl;
+}
+
+void array2() {
+    /*Dato un vettore di 8 numeri interi caricato da programma individuare e stampare a video il massimo e il minimo con la loro posizione nel vettore.*/
+    const int n = 8;
+    int numeri[n] = {4, 5, 6, 3, 8, 1, 9, 7};
+    int numero = 0;
+    int NumeroMax;
+    int NumeroMin;
+    int iMax;
+    int iMin;
+    NumeroMax = numeri[0];
+    NumeroMin = numeri[0];
+    for (int i = 0; i < n; i++) {
+        if (NumeroMax < numeri[i]) {
+            NumeroMax = numeri[i];
+            iMax = i;
+        }
+    }
+    for (int in = 0; in < n; in++) {
+        if (numeri[in] < NumeroMin) {
+            NumeroMin = numeri[in];
+            iMin = in;
+        }
+    }
+    cout << " Il maggiore e': " << NumeroMax << endl << "L'elemento maggiore e': " << iMax << endl;
+    cout << "Il minore e': " << NumeroMin << endl << "L'elemento minore e': " << iMin << endl;
+}
+
+void array_prova() {
+    const int n = 6;
+    int array[n] = {3, 5, 7, 8, 1, 4};
+    int sum = 0;
+    int molt = 1;
+    for (int i = 0; i < n; i++) {
+        sum = sum + array[i];
+        molt = molt * array[i];
+    }
+    int contatore = 0;
+    while (contatore < n) {
+        cout << array[contatore] << endl;
+        contatore++;
+    }
+    cout << "la somma e': " << sum << endl;
+    cout << "La moltiplicazione e': " << molt << endl;
+}
+
+void array3() {
+    /*Caricare da tastiera in vettore di 10 numeri interi e stamparlo a video*/
+    int numero_volte = 10;
+    int numero_utente;
+    int numeri[numero_volte];
+    for (int i = 0; i < numero_volte; i++) {
+        cout << "Inserisci 10 numeri per l'array" << endl;
+        cin >> numero_utente;
+        numeri[i] = numero_utente;
+    }
+    for (int in = 0; in < numero_volte; in++) {
+        cout << numeri[in] << endl;
+    }
+}
+
+void array_esercizio() {
+    /*creare un array che contenga da 101 a 191, stampare l’array al contrario*/
+    int numero = 100;
+    const int costante = 91;
+    int countdown[costante];
+    for (int i = 0; i <= costante - 1; i++) {
+        numero = numero + 1;
+        countdown[i] = numero;
+    }
+    for (int ind = costante - 1; ind >= 0; ind--) {
+        cout << "array al contrario: " << countdown[ind] << endl;
+    }
+}
+
+void array_esercizio2(){
+    /*dato un array di 100 elementi riempirlo con i primi 100 numeri pari,
+     * successivamente stampare gli ultimi 10 numeri dell’array */
+    int elementi = 100;
+    int numeri[elementi];
+    int numero = 2;
+    for(int i = 0; i <= elementi; i++){
+        numeri[i] = numero;
+        numero = numero + 2;
+        /*if(i >= elementi - 10){
+            cout << numeri[i] << endl;
+        }*/
+    }
+    for (int i = 90; i < elementi; i++){
+        cout << numeri[i] << endl;
+    }
+}
+
+void array_esercizio3(){
+    /*dato un array di 100 elementi riempirlo con i primi 100 numeri dispari,
+     * successivamente stampare solo gli elementi con indice pari.*/
+    int elementi = 100;
+    int numeri[elementi];
+    int numero = 1;
+    for(int i = 0; i < elementi; i++){
+        numeri[i] = numero;
+        numero = numero + 2;
+    }
+    for (int i = 0; i < elementi; i = i + 2){
+        cout << numeri[i] << endl;
+    }
 }
